@@ -1,12 +1,12 @@
 {
-  "name": "backentrevista",
+  "name": "materialgestor",
   "version": "1.0.0",
-  "description": "BackEnd para prieba tecnica (Entrevista Evo-ion)",
+  "description": "Trabajo de clase 1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.js",
-    "start": "src/index.js"
+    "start": "node src/index.js"
   },
   "author": "",
   "license": "ISC",
