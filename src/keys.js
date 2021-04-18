@@ -9,7 +9,7 @@
 
 // llaver para conexión a base de datos online
 const keysDatabase = {
-    port: process.env.PORT || 3306,
+    port: 3306,
     host: process.env.DB || "remotemysql.com",
     usuarioMysql: "Z9VdEbLfIc",
     claveUsuarioMysql: "d5Uxd8TAyA",
