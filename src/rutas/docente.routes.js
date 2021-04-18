@@ -2,6 +2,6 @@ const express = require("express")
 const router = express.Router()
 const docenteCtrl = require("../controladores/docenteCtrl")
 
-router.get("/docente/:id_docente", docenteCtrl.getOne)
+router.post("/docente", docenteCtrl.post)
 
 module.exports = router

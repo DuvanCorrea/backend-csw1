@@ -1,6 +1,6 @@
 // llaves de acceso para conexión a base de datos
 const keysDatabase = {
-    port: 3307,
+    port: 3306,
     host: "localhost",
     usuarioMysql: "root",
     claveUsuarioMysql: "",
