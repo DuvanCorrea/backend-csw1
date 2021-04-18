@@ -4,7 +4,7 @@ const keysDatabase = {
     host: "localhost",
     usuarioMysql: "root",
     claveUsuarioMysql: "",
-    nombreDB: "pruebatecnica"
+    nombreDB: "materialgestor"
 }
 
 module.exports = keysDatabase
