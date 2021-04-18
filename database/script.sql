@@ -12,11 +12,11 @@ CREATE DATABASE `materialgestor`;
 USE `materialgestor`;
 
 -- -----------------------------------------------------
--- Table `materialgestor`.`DOCENTES`
+-- Table `DOCENTES`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `materialgestor`.`DOCENTES`;
+DROP TABLE IF EXISTS `DOCENTES`;
 
-CREATE TABLE IF NOT EXISTS `materialgestor`.`DOCENTES` (
+CREATE TABLE IF NOT EXISTS `DOCENTES` (
     `id_docente` INT NOT NULL,
     `nombre_completo` VARCHAR(60) NULL,
     `correo` VARCHAR(60) NULL,
@@ -28,11 +28,11 @@ CREATE TABLE IF NOT EXISTS `materialgestor`.`DOCENTES` (
 );
 
 -- -----------------------------------------------------
--- Table `materialgestor`.`MATERIALES`
+-- Table `MATERIALES`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `materialgestor`.`MATERIALES`;
+DROP TABLE IF EXISTS `MATERIALES`;
 
-CREATE TABLE IF NOT EXISTS `materialgestor`.`MATERIALES` (
+CREATE TABLE IF NOT EXISTS `MATERIALES` (
     `id` INT NOT NULL,
     `titulo_material` VARCHAR(45) NULL,
     `link_material` VARCHAR(100) NULL,
@@ -41,15 +41,15 @@ CREATE TABLE IF NOT EXISTS `materialgestor`.`MATERIALES` (
     `DOCENTES_id_docente` INT NOT NULL,
     `publicado` TINYINT NULL,
     PRIMARY KEY (`id`),
-    CONSTRAINT `fk_MATERIALES_DOCENTES` FOREIGN KEY (`DOCENTES_id_docente`) REFERENCES `materialgestor`.`DOCENTES` (`id_docente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    CONSTRAINT `fk_MATERIALES_DOCENTES` FOREIGN KEY (`DOCENTES_id_docente`) REFERENCES `DOCENTES` (`id_docente`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 -- -----------------------------------------------------
--- Table `materialgestor`.`RECONOCIMIENTOS`
+-- Table `RECONOCIMIENTOS`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `materialgestor`.`RECONOCIMIENTOS`;
+DROP TABLE IF EXISTS `RECONOCIMIENTOS`;
 
-CREATE TABLE IF NOT EXISTS `materialgestor`.`RECONOCIMIENTOS` (
+CREATE TABLE IF NOT EXISTS `RECONOCIMIENTOS` (
     `id_reconocimiento` INT(10) NOT NULL,
     `DOCENTES_id_docente` INT NOT NULL,
     `persona_que_otorga` VARCHAR(60) NULL,
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `materialgestor`.`RECONOCIMIENTOS` (
     `razon` VARCHAR(250) NULL,
     `anio_reconocimento` DATETIME NULL,
     PRIMARY KEY (`id_reconocimiento`),
-    CONSTRAINT `fk_RECONOCIMIENTOS_DOCENTES1` FOREIGN KEY (`DOCENTES_id_docente`) REFERENCES `materialgestor`.`DOCENTES` (`id_docente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    CONSTRAINT `fk_RECONOCIMIENTOS_DOCENTES1` FOREIGN KEY (`DOCENTES_id_docente`) REFERENCES `DOCENTES` (`id_docente`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 -- INSERTS
