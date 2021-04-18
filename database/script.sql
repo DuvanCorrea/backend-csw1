@@ -41,7 +41,6 @@ CREATE TABLE IF NOT EXISTS `materialgestor`.`MATERIALES` (
     `DOCENTES_id_docente` INT NOT NULL,
     `publicado` TINYINT NULL,
     PRIMARY KEY (`id`),
-    INDEX `fk_MATERIALES_DOCENTES_idx` (`DOCENTES_id_docente` ASC) VISIBLE,
     CONSTRAINT `fk_MATERIALES_DOCENTES` FOREIGN KEY (`DOCENTES_id_docente`) REFERENCES `materialgestor`.`DOCENTES` (`id_docente`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
@@ -59,7 +58,6 @@ CREATE TABLE IF NOT EXISTS `materialgestor`.`RECONOCIMIENTOS` (
     `razon` VARCHAR(250) NULL,
     `anio_reconocimento` DATETIME NULL,
     PRIMARY KEY (`id_reconocimiento`),
-    INDEX `fk_RECONOCIMIENTOS_DOCENTES1_idx` (`DOCENTES_id_docente` ASC) VISIBLE,
     CONSTRAINT `fk_RECONOCIMIENTOS_DOCENTES1` FOREIGN KEY (`DOCENTES_id_docente`) REFERENCES `materialgestor`.`DOCENTES` (`id_docente`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 

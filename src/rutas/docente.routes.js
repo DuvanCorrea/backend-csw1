@@ -1,8 +1,7 @@
 const express = require("express")
 const router = express.Router()
-const categoriaCtrl = require("../controladores/docenteCtrl")
+const docenteCtrl = require("../controladores/docenteCtrl")
 
-router.get("/categoria/:id_docente", categoriaCtrl.getOne)
-
+router.get("/docente/:id_docente", docenteCtrl.getOne)
 
 module.exports = router
