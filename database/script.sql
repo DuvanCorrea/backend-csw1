@@ -103,7 +103,7 @@ VALUES
         '2',
         '2021-04-16 00:00:00'
     ),
-(
+    (
         NULL,
         'materia2',
         'no asignado',
@@ -112,7 +112,7 @@ VALUES
         '2',
         '2021-04-16 00:00:00'
     ),
-(
+    (
         NULL,
         'material3',
         'no asignado',
@@ -120,4 +120,44 @@ VALUES
         'no asignado',
         '1',
         '2021-04-16 00:00:00'
+    );
+
+--
+INSERT INTO
+    `RECONOCIMIENTOS` (
+        `id_reconocimiento`,
+        `DOCENTES_id_docente`,
+        `persona_que_otorga`,
+        `persona_que_recibe`,
+        `entidada_otorga`,
+        `razon`,
+        `anio_reconocimento`
+    )
+VALUES
+    (
+        NULL,
+        '1',
+        'otorga',
+        'recibe',
+        'sena',
+        'ni idea',
+        '2021-04-15 00:00:00'
+    ),
+    (
+        NULL,
+        '2',
+        'otorga',
+        'recibe',
+        'sena',
+        'ni idea',
+        '2021-04-15 00:00:00'
+    ),
+(
+        NULL,
+        '2',
+        'otorga',
+        'recibe',
+        'sena',
+        'ni idea',
+        '2021-04-15 00:00:00'
     );

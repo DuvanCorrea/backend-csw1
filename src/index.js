@@ -6,6 +6,7 @@ const app = express()
 // ------------------------
 const docenteRutas = require("./rutas/docente.routes")
 const materialRutas = require("./rutas/material.routes")
+const reconocimientoRutas = require("./rutas/reconocimiento.routes")
 
 // configuraciones del servidor
 // ----------------------------
@@ -35,6 +36,7 @@ app.use(express.json()) // para convertir texto plano en formato json
 // -------------------------
 app.use("/api", docenteRutas)
 app.use("/api", materialRutas)
+app.use("/api", reconocimientoRutas)
 
 // iniciando servidor
 // ------------------
