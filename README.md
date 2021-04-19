@@ -1,3 +1,11 @@
+**IMPORTANTE** En caso de usar directamente la api en un servidor online hacer peticiones a **https://servercsw1.herokuapp.com/** complementando con la ruta deseada
+
+**Base de datos online**
+La base de datos online esta alojada en https://remotemysql.com/phpmyadmin/sql.php
+ 
+ **Credenciales de base de datos**
+En el archivo "keys.js"
+
 ## API para trabajo de creación de software.
 
 En caso de usarlo de forma local se recomienda:
@@ -8,13 +16,7 @@ Para comenzar debemos clonar el repositorio y crear la base de datos, para la cr
  
 Abrir una terminal o cmd en la ubicación de la carpeta clonada e instalar las dependencia con el comando `npm i`
 
-En caso de usar directamente la api en un servidor online hacer peticiones a **https://servercsw1.herokuapp.com/** complementando con la ruta deseada
-
-**Base de datos online**
-La base de datos online esta alojada en https://remotemysql.com/phpmyadmin/sql.php
- 
- **Credenciales de base de datos**
-En el archivo "keys.js"
+usar el comento `npm start` para iniciar o `npm run dev` para ejecutar con nodemon
 
 ## Rutas
 
