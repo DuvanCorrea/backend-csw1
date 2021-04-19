@@ -37,9 +37,7 @@ Petición **POST** a **/api/docente/login** -> nos sirve hacer login en el siste
 
 * ### MATERIALES
 
-router.delete("/material/:id_material", materialCtrl.delete)
-
-Para los docentes se tienen las siguientes rutas como puntos de acceso:
+Para los materiales se tienen las siguientes rutas como puntos de acceso:
 
 Petición **GET** a **/api/material** -> nos devuelve todos los materiales registrados en la base de datos.
 
@@ -56,5 +54,28 @@ Petición **POST** a **/api/material** -> para crear un  nuevo material, el form
         "fecha_material":"2000-01-01 00:00:00",
         "DOCENTES_id_docente":"id tomado del docente actual, no ingresar manual",
         "publicado":"2000-01-01 00:00:00"
+}
+```
+
+* ### RECONOCIMIENTO
+
+Para los reconocimiento se tienen las siguientes rutas como puntos de acceso:
+
+Petición **GET** a **/api/reconocimiento** -> nos devuelve todos los reconocimeinto registrados en la base de datos.
+
+Petición **GET** a **/reconocimiento/:id_reconocimiento** -> donde :id_material se reemplaza con el id a buscar y nos devuelve el reconocimiento cuyo id coincida con el que enviemos.
+
+Petición **DELETE** a **/reconocimiento/:id_material** -> donde :id_material se reemplaza con el id a eliminar.
+
+Petición **POST** a **/api/reconocimiento** -> para crear un  nuevo reconocimiento, el formato a enviar es
+
+``` json
+{
+        "id_docente":"id del docente con sesion iniciada, no ingresar manual",
+        "persona_que_otorga":"quien otorga",
+        "persona_que_recibe":"quien recibe",
+        "entidad_otorga":"SENA",
+        "razon":"ni idea",
+        "anio_reconocimiento":"2000-10-1 00:00:00"
 }
 ```
