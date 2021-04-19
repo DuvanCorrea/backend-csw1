@@ -1,4 +1,5 @@
-**IMPORTANTE** En caso de usar directamente la api en un servidor online hacer peticiones a **https://servercsw1.herokuapp.com/** complementando con la ruta deseada
+**IMPORTANTE** 
+En caso de usar directamente la api en un servidor online hacer peticiones a **https://servercsw1.herokuapp.com/** complementando con la ruta deseada
 
 **Base de datos online**
 La base de datos online esta alojada en https://remotemysql.com/phpmyadmin/sql.php
