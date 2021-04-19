@@ -2,16 +2,15 @@ const db = require("../database/db")
 
 // quierys para peticiones a la base de datos
 // ------------------------------------------
-const GETONE = "SELECT * FROM RECONOCIMIENTOS WHERE (id_reconocimiento=?)" // selecciona el material de un docente
+const GETONE = "SELECT * FROM RECONOCIMIENTOS WHERE (id_reconocimiento=?)"
 const GETALL = "SELECT * FROM RECONOCIMIENTOS"
-const POST = "INSERT INTO MATERIALES (titulo_material,fecha_material,link_archivo_material,DOCENTES_id_docente,publicado) VALUES (?,?,?,?,?)"
-const DELETE = "DELETE FROM MATERIALES WHERE (id=?)"
+const POST = "INSERT INTO RECONOCIMIENTOS (DOCENTES_id_docente,persona_que_otorga,persona_que_recibe,entidada_otorga,razon , anio_reconocimento) VALUES (?,?,?,?,?,?)"
+const DELETE = "DELETE FROM RECONOCIMIENTOS WHERE (id_reconocimiento=?)"
 
-// controlador de autenticacion de usuario
-// ---------------------------------------
+
 const materialCtrl = {
 
-    // Metodo para consulta un solo material
+    // Metodo para consulta un solo reconocimeinto
     // -------------------------------------
     getUno: (req, res) => {
 
@@ -45,19 +44,19 @@ const materialCtrl = {
 
     },
 
-    // metodo para agragar material
+    // metodo para agragar reconocimeinto
     // ----------------------------
     post: (req, res) => {
 
         // se extrae la informacion enviada desde front
         // --------------------------------------------
         const {
-            titulo_material,
-            material,
-            fecha_material,
-            link_archivo_material,
-            DOCENTES_id_docente,
-            publicado } = req.body
+            id_docente,
+            persona_que_otorga,
+            persona_que_recibe,
+            entidad_otorga,
+            razon,
+            anio_reconocimiento } = req.body
 
         db.getConnection((err, conn) => {
             if (err) {
@@ -65,22 +64,25 @@ const materialCtrl = {
                 res.status(500)
                 res.send({ respuesta: "error", descripcion: "no se pudo conectar a la base de datos (1)" })
             } else {
-                conn.query(POST, [titulo_material,
-                    fecha_material,
-                    link_archivo_material,
-                    DOCENTES_id_docente,
-                    publicado], (err, rows) => {
+                conn.query(POST, [id_docente,
+                    persona_que_otorga,
+                    persona_que_recibe,
+                    entidad_otorga,
+                    razon,
+                    anio_reconocimiento], (err, rows) => {
                         if (err) {
                             console.log(err)
                             res.status(500)
                             res.send({ respuesta: "error", descripcion: "error al consultar la base de datos (2)" })
                         } else {
                             res.send({
-                                id: rows.insertId, titulo_material,
-                                fecha_material,
-                                link_archivo_material,
-                                DOCENTES_id_docente,
-                                publicado
+                                id: rows.insertId,
+                                id_docente,
+                                persona_que_otorga,
+                                persona_que_recibe,
+                                entidad_otorga,
+                                razon,
+                                anio_reconocimiento
                             })
                         }
                     })
@@ -88,29 +90,29 @@ const materialCtrl = {
         })
     },
 
-    // metodo para eliminar materiales
+    // metodo para eliminar reconocimeinto
     // -------------------------------
     delete: (req, res) => {
 
         // se extrae la información enviada desde front
         // --------------------------------------------
-        const { id_material } = req.params
+        const { id_reconocimiento } = req.params
 
         db.getConnection((err, conn) => {
             if (err) {
                 res.status(500)
                 res.send({ respuesta: "error", descripcion: "no se pudo conectar a la base de datos" })
             } else {
-                conn.query(DELETE, [id_material], (err, rows) => {
+                conn.query(DELETE, [id_reconocimiento], (err, rows) => {
                     if (err) {
                         res.status(500)
                         res.send({ respuesta: "error", descripcion: "error al eliminar informacion a la bd" })
                     } else {
                         if (rows.affectedRows > 0) {
-                            res.send({ respuesta: "eliminado", descripcion: "El material ha sido eliminada" })
+                            res.send({ respuesta: "eliminado", descripcion: "El reconocimiento ha sido eliminada" })
                         } else {
                             res.status(404)
-                            res.send({ respuesta: "error", descripcion: "El material no fue encontrada" })
+                            res.send({ respuesta: "error", descripcion: "El reconocimiento no fue encontrada" })
                         }
                     }
                 })
@@ -119,7 +121,7 @@ const materialCtrl = {
     },
 
 
-    // Metodo para consulta todos los materiales
+    // Metodo para consulta todos los reconocimeinto
     // ---------------------------------------
     getTodos: (req, res) => {
 
