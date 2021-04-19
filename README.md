@@ -18,7 +18,8 @@ En el archivo "keys.js"
 
 ## Rutas
 
-- ### DOCENTES
+* ### DOCENTES
+
 Para los docentes se tienen las siguientes rutas como puntos de acceso:
 
 Petición **GET** a **/api/docente** -> nos devuelve todos los docentes registrados en la base de datos.
@@ -26,17 +27,17 @@ Petición **GET** a **/api/docente** -> nos devuelve todos los docentes registra
 Petición **GET** a **/api/docente/:id_docente** -> donde :id_docente se reemplaza con el id a buscar y nos devuelve el docente cuyo id coincida con el que enviemos.
 
 Petición **POST** a **/api/docente/login** -> nos sirve hacer login en el sistema, para esta ruta se debe enviar el siguiente formato
-```json
+
+``` json
 {
         "correo":  "correo del docente",
         "clave":  "docente como texto"
 }
 ```
 
-- ### MATERIALES
+* ### MATERIALES
 
 router.delete("/material/:id_material", materialCtrl.delete)
-
 
 Para los docentes se tienen las siguientes rutas como puntos de acceso:
 
@@ -47,13 +48,13 @@ Petición **GET** a **/material/:id_material** -> donde :id_material se reemplaz
 Petición **DELETE** a **/material/:id_material** -> donde :id_material se reemplaza con el id a eliminar.
 
 Petición **POST** a **/api/material** -> para crear un  nuevo material, el formato a enviar es
-```json
+
+``` json
 {
         "titulo_material":"titulo",
-            "material":"archivo en pdf",
-            "fecha_material":"2000-01-01 00:00:00",
-            "DOCENTES_id_docente":"id tomado del docente actual, no ingresar manual",
-            "publicado":"2000-01-01 00:00:00"
+        "material":"archivo en pdf",
+        "fecha_material":"2000-01-01 00:00:00",
+        "DOCENTES_id_docente":"id tomado del docente actual, no ingresar manual",
+        "publicado":"2000-01-01 00:00:00"
 }
 ```
-
