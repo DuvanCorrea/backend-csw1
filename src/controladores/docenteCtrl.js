@@ -4,7 +4,7 @@ const db = require("../database/db")
 // ------------------------------------------
 const GETONE = "SELECT id_docente, nombre_completo, correo, anio_nacimiento, areas_conocimiento, materia FROM DOCENTES WHERE (id_docente=?)"
 const GETALL = "SELECT * FROM DOCENTES"
-const POST = "SELECT clave FROM DOCENTES WHERE (id_docente=?)"
+const POST = "SELECT clave FROM DOCENTES WHERE (correo=?)"
 
 // controlador de autenticacion de usuario
 // ---------------------------------------
@@ -50,7 +50,7 @@ const docenteCtrl = {
 
         // se extrae la informacion enviada desde front
         // --------------------------------------------
-        const { id_docente, clave } = req.body
+        const { correo, clave } = req.body
 
         db.getConnection((err, conn) => {
             if (err) {
@@ -58,7 +58,7 @@ const docenteCtrl = {
                 res.status(500)
                 res.send({ respuesta: "error", descripcion: "no se pudo conectar a la base de datos (1)" })
             } else {
-                conn.query(POST, [id_docente], (err, rows) => {
+                conn.query(POST, [correo], (err, rows) => {
                     if (err) {
                         res.status(500)
                         res.send({ respuesta: "error", descripcion: "error al consultar la base de datos (2)" })

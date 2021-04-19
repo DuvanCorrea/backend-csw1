@@ -4,7 +4,7 @@ const db = require("../database/db")
 // ------------------------------------------
 const GETONE = "SELECT * FROM MATERIALES WHERE (id=?)" // selecciona el material de un docente
 const GETALL = "SELECT * FROM MATERIALES"
-const POST = "INSERT INTO MATERIALES (titulo_material,link_material,fecha_material,link_archivo_material,DOCENTES_id_docente,publicado) VALUES (?,?,?,?,?,?)"
+const POST = "INSERT INTO MATERIALES (titulo_material,fecha_material,link_archivo_material,DOCENTES_id_docente,publicado) VALUES (?,?,?,?,?)"
 const DELETE = "DELETE FROM MATERIALES WHERE (id=?)"
 
 // controlador de autenticacion de usuario
@@ -53,7 +53,7 @@ const materialCtrl = {
         // --------------------------------------------
         const {
             titulo_material,
-            link_material,
+            material,
             fecha_material,
             link_archivo_material,
             DOCENTES_id_docente,
@@ -66,7 +66,6 @@ const materialCtrl = {
                 res.send({ respuesta: "error", descripcion: "no se pudo conectar a la base de datos (1)" })
             } else {
                 conn.query(POST, [titulo_material,
-                    link_material,
                     fecha_material,
                     link_archivo_material,
                     DOCENTES_id_docente,
@@ -78,7 +77,6 @@ const materialCtrl = {
                         } else {
                             res.send({
                                 id: rows.insertId, titulo_material,
-                                link_material,
                                 fecha_material,
                                 link_archivo_material,
                                 DOCENTES_id_docente,
