@@ -39,6 +39,7 @@ const docenteCtrl = {
                         }
                     }
                 })
+                conn.release();
             }
         })
 
@@ -86,6 +87,7 @@ const docenteCtrl = {
                         }
                     }
                 })
+                conn.release();
             }
         })
     },
@@ -108,6 +110,7 @@ const docenteCtrl = {
                         res.send(rows)
                     }
                 })
+                conn.release();
             }
         })
 

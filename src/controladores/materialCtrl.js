@@ -40,6 +40,7 @@ const materialCtrl = {
                         }
                     }
                 })
+                conn.release();
             }
         })
 
@@ -84,6 +85,7 @@ const materialCtrl = {
                             })
                         }
                     })
+                    conn.release();
             }
         })
     },
@@ -114,6 +116,7 @@ const materialCtrl = {
                         }
                     }
                 })
+                conn.release();
             }
         })
     },
