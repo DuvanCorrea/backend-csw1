@@ -4,7 +4,7 @@ const db = require("../database/db")
 // ------------------------------------------
 const GETONE = "SELECT id_docente, nombre_completo, correo, anio_nacimiento, areas_conocimiento, materia FROM DOCENTES WHERE (id_docente=?)"
 const GETALL = "SELECT * FROM DOCENTES"
-const POST = "SELECT clave FROM DOCENTES WHERE (correo=?)"
+const POST = "SELECT * FROM DOCENTES WHERE (correo=?)"
 
 // controlador de autenticacion de usuario
 // ---------------------------------------
@@ -70,7 +70,16 @@ const docenteCtrl = {
                             // se hace la validacion de la contraseña
                             // --------------------------------------
                             if (rows[0].clave === clave) {
-                                res.send({ valido: true, mensaje: "docente validado" })
+                                res.send({
+                                    valido: true, mensaje: "docente validado", docente: {
+                                        id: rows[0].id_docente,
+                                        nombre: rows[0].nombre_completo,
+                                        correo: rows[0].correo,
+                                        nacimiento: rows[0].anio_nacimiento,
+                                        areas: rows[0].areas_conocimiento,
+                                        materia: rows[0].materia
+                                    }
+                                })
                             } else {
                                 res.send({ valido: false, mensaje: "contraseña incorrecta" })
                             }
