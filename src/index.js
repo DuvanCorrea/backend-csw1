@@ -10,7 +10,7 @@ const reconocimientoRutas = require("./rutas/reconocimiento.routes")
 
 // configuraciones del servidor
 // ----------------------------
-app.set("port", process.env.PORT || 3000)
+app.set("port", process.env.PORT || 4000)
 
 // manejo de cors
 // --------------

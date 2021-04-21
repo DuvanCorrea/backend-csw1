@@ -8,7 +8,7 @@ const mysqlPool = mysql.createPool({
     user: keysDatabase.usuarioMysql,
     password: keysDatabase.claveUsuarioMysql,
     database: keysDatabase.nombreDB,
-    connectionLimit: 10
+    connectionLimit: 100
 })
 
 module.exports = mysqlPool
