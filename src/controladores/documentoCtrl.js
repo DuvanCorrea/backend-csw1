@@ -9,10 +9,12 @@ const docenteCtrl = {
 
     post: (req, res) => {
 
-        const { id_material } = req.params
-        console.log(id_material)
+        // console.log("documentoCtrl", id_material)
 
-        let documento = req.files.documento
+        const { id_material } = req.params
+
+        let documento = req.files.material
+        console.log("documentoCtrl", req.files)
         let documentoNombre = documento.name
 
         console.log(documentoNombre)
@@ -51,8 +53,6 @@ const docenteCtrl = {
     get: (req, res) => {
 
         const { nombre_documento } = req.params
-
-        console.log(nombre_documento)
 
         res.download("src/documentos/" + nombre_documento, nombre_documento, (err) => {
             if (err) {
