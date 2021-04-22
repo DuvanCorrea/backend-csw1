@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `MATERIALES` (
     `fecha_material` DATETIME NULL,
     `link_archivo_material` VARCHAR(100) NULL,
     `DOCENTES_id_docente` INT NOT NULL,
-    `publicado` DATETIME NULL,
+    `publicado` BOOLEAN NULL,
     PRIMARY KEY (`id`),
     CONSTRAINT `fk_MATERIALES_DOCENTES` FOREIGN KEY (`DOCENTES_id_docente`) REFERENCES `DOCENTES` (`id_docente`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
@@ -101,7 +101,7 @@ VALUES
         '2021-04-12 00:00:00',
         'no asignado',
         '2',
-        '2021-04-16 00:00:00'
+        false
     ),
     (
         NULL,
@@ -110,7 +110,7 @@ VALUES
         '2021-04-12 00:00:00',
         'no asignado',
         '2',
-        '2021-04-16 00:00:00'
+        true
     ),
     (
         NULL,
@@ -119,7 +119,7 @@ VALUES
         '2021-04-12 00:00:00',
         'no asignado',
         '1',
-        '2021-04-16 00:00:00'
+        false
     );
 
 --
@@ -152,7 +152,7 @@ VALUES
         'ni idea',
         '2021-04-15 00:00:00'
     ),
-(
+    (
         NULL,
         '2',
         'otorga',

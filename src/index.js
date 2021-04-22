@@ -1,12 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const app = express()
+const fileUpload = require('express-fileupload')
 
 // exportacion de las rutas
 // ------------------------
 const docenteRutas = require("./rutas/docente.routes")
 const materialRutas = require("./rutas/material.routes")
 const reconocimientoRutas = require("./rutas/reconocimiento.routes")
+const documentoRutas = require("./rutas/documento.routes")
 
 // configuraciones del servidor
 // ----------------------------
@@ -31,12 +33,14 @@ app.use(cors(corsOptions));
 // middlewares
 // -----------
 app.use(express.json()) // para convertir texto plano en formato json
+app.use(fileUpload())
 
 // agregar rutas al servidor
 // -------------------------
 app.use("/api", docenteRutas)
 app.use("/api", materialRutas)
 app.use("/api", reconocimientoRutas)
+app.use("/api", documentoRutas)
 
 // iniciando servidor
 // ------------------

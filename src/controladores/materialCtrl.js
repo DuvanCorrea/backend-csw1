@@ -54,11 +54,13 @@ const materialCtrl = {
         // --------------------------------------------
         const {
             titulo_material,
-            material,
             fecha_material,
             link_archivo_material,
             DOCENTES_id_docente,
             publicado } = req.body
+
+        const { material } = req.body
+        console.log(material)
 
         db.getConnection((err, conn) => {
             if (err) {
@@ -85,7 +87,7 @@ const materialCtrl = {
                             })
                         }
                     })
-                    conn.release();
+                conn.release();
             }
         })
     },
@@ -144,6 +146,12 @@ const materialCtrl = {
         })
 
     },
+
+    // Metodo para recibir el archivo 
+    // ------------------------------
+    postArchivo: (req, res) => {
+        console.log("req.params")
+    }
 
 }
 
