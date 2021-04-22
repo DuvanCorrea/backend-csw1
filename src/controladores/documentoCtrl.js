@@ -48,7 +48,19 @@ const docenteCtrl = {
         })
     },
 
+    get: (req, res) => {
 
+        const { nombre_documento } = req.params
+
+        console.log(nombre_documento)
+
+        res.download("src/documentos/" + nombre_documento, nombre_documento, (err) => {
+            if (err) {
+                res.status(500).send("error en el servidor")
+            }
+            else console.log("ok")
+        })
+    }
 
 }
 
